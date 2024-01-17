@@ -1,4 +1,7 @@
-# Building on VisionFive2
+# RISC-V 64-bit code generation for Play! - PlayStation2 Emulator
+WIP - very slow and unreliable
+
+## Building on VisionFive2
 
 #### Build QT (For OpenGL ES 2 support):
 Get QT 5 from here: https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt
