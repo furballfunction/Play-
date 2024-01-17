@@ -44,12 +44,14 @@ void CGSH_OpenGL::SetupTextureUpdaters()
 	m_textureUpdater[PSMCT24_UNK] = &CGSH_OpenGL::TexUpdater_Psm32;
 	m_textureUpdater[PSMCT16S] = &CGSH_OpenGL::TexUpdater_Psm16<CGsPixelFormats::CPixelIndexorPSMCT16S>;
 
+#if !defined(__riscv)
 	if(canUseSimd48Updaters)
 	{
 		m_textureUpdater[PSMT8] = &CGSH_OpenGL::TexUpdater_Psm8;
 		m_textureUpdater[PSMT4] = &CGSH_OpenGL::TexUpdater_Psm4;
 	}
 	else
+#endif
 	{
 		m_textureUpdater[PSMT8] = &CGSH_OpenGL::TexUpdater_Psm48<CGsPixelFormats::CPixelIndexorPSMT8>;
 		m_textureUpdater[PSMT4] = &CGSH_OpenGL::TexUpdater_Psm48<CGsPixelFormats::CPixelIndexorPSMT4>;
@@ -576,6 +578,7 @@ void convertColumn8(uint8* dest, const int destStride, uint8* src, int colNum)
 */
 #endif
 
+#if !defined(__riscv)
 void CGSH_OpenGL::TexUpdater_Psm8(uint32 bufPtr, uint32 bufWidth, unsigned int texX, unsigned int texY, unsigned int texWidth, unsigned int texHeight)
 {
 	if(texWidth < 16)
@@ -654,6 +657,7 @@ void CGSH_OpenGL::TexUpdater_Psm4(unsigned int bufPtr, unsigned int bufWidth, un
 	glTexSubImage2D(GL_TEXTURE_2D, 0, texX, texY, texWidth, texHeight, GL_RED, GL_UNSIGNED_BYTE, m_pCvtBuffer);
 	CHECKGLERROR();
 }
+#endif
 
 template <typename IndexorType>
 void CGSH_OpenGL::TexUpdater_Psm48(uint32 bufPtr, uint32 bufWidth, unsigned int texX, unsigned int texY, unsigned int texWidth, unsigned int texHeight)

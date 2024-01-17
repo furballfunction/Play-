@@ -1,3 +1,33 @@
+# Building on VisionFive2
+
+#### Build QT (For OpenGL ES 2 support):
+Get QT 5 from here: https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt
+Apply patches and cd into the qt-everywhere-src-5.15.2 dir
+```sh
+mkdir build
+cd build
+../configure -v -prefix $PWD/out -confirm-license -opensource -nomake examples -nomake tests -skip qtwebengine -opengl es2 -static
+make -j4 module-qtx11extras-install_subtargets
+```
+
+#### Get Play!:
+```sh
+git clone --recursive https://github.com/furballfunction/Play-.git
+cd Play-
+mkdir build
+cd build
+CMAKE_PREFIX_PATH=<PATH TO QT BUILD OUT> cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUSE_GLES=true
+make -j4 Play
+```
+
+#### Run:
+```sh
+Source/qt_ui/Play
+```
+
+> Tested on GNOME Xorg on the Debian 202311 image
+
+
 # Play! #
 Play! is a PlayStation2 emulator for Windows, macOS, UNIX, Android, iOS & web browser platforms.
 
