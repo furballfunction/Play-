@@ -1,10 +1,13 @@
-# RISC-V 64-bit code generation for Play! - PlayStation2 Emulator
+# RISC-V 64-bit code generation for [Play! - PlayStation2 Emulator](https://github.com/jpd002/Play-)
 WIP - very slow and unreliable
+
+![cube](https://github.com/furballfunction/Play-/assets/155835816/b58d05c8-0c06-416a-b2f6-c92cf71f6c21)
+> Running cube sample from [PS2SDK](https://github.com/ps2dev/ps2sdk)
 
 ## Building on VisionFive2
 
 #### Build QT (For OpenGL ES 2 support):
-Get QT 5 from here: https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt
+Get QT 5 from here: [https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt](https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt)
 Apply patches and cd into the qt-everywhere-src-5.15.2 dir
 ```sh
 mkdir build
@@ -24,12 +27,12 @@ make -j4 Play
 ```
 
 #### Run:
+> Tested on GNOME Xorg on the Debian 202311 image
 ```sh
 Source/qt_ui/Play
 ```
 
-> Tested on GNOME Xorg on the Debian 202311 image
-
+</br></br>
 
 # Play! #
 Play! is a PlayStation2 emulator for Windows, macOS, UNIX, Android, iOS & web browser platforms.
