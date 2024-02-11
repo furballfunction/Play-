@@ -6,7 +6,16 @@ WIP - very slow and unreliable
 
 ## Building on VisionFive2
 
-#### Build QT (For OpenGL ES 2 support):
+### Get Qt from pre built or build yourself
+
+##### Get pre [built](https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_1/qt-everywhere-src-5.15.2-visionfive2-egl.zip)
+```sh
+wget "https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_1/qt-everywhere-src-5.15.2-visionfive2-egl.zip"
+unzip -d qt qt-everywhere-src-5.15.2-visionfive2-egl.zip
+export PATH_TO_QT_BUILD_OUT="$PWD/qt"
+```
+
+##### Build QT (For OpenGL ES 2 support):
 Get QT 5 from here: [https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt](https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt)
 Apply patches and cd into the qt-everywhere-src-5.15.2 dir
 ```sh
@@ -14,20 +23,22 @@ mkdir build
 cd build
 ../configure -v -prefix $PWD/out -confirm-license -opensource -nomake examples -nomake tests -skip qtwebengine -opengl es2 -static
 make -j4 module-qtx11extras-install_subtargets
+export PATH_TO_QT_BUILD_OUT="$PWD/out"
 ```
 
-#### Get Play!:
+### Get and build Play!:
 ```sh
 git clone --recursive https://github.com/furballfunction/Play-.git
 cd Play-
 mkdir build
 cd build
-CMAKE_PREFIX_PATH=<PATH TO QT BUILD OUT> cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUSE_GLES=true
+CMAKE_PREFIX_PATH="$PATH_TO_QT_BUILD_OUT" cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUSE_GLES=true
 make -j4 Play
 ```
 
-#### Run:
-> Tested on GNOME Xorg on the Debian 202311 image
+### Run:
+> Now tested on Lichee Pi 4a
+>> Tested on GNOME Xorg on the Debian 202311 image
 ```sh
 Source/qt_ui/Play
 ```
