@@ -1,10 +1,12 @@
 # RISC-V 64-bit code generation for [Play! - PlayStation2 Emulator](https://github.com/jpd002/Play-)
-WIP - very slow and unreliable
+WIP - very slow
+
+## Get pre-built: [LicheePi 4a](https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_2/Play2.zip) | [VisionFive2](https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_2/Play2_visionfive2.zip)
 
 ![cube](https://github.com/furballfunction/Play-/assets/155835816/b58d05c8-0c06-416a-b2f6-c92cf71f6c21)
 > Running cube sample from [PS2SDK](https://github.com/ps2dev/ps2sdk)
 
-## Building on VisionFive2
+## Building on VisionFive2 or Lichee Pi 4a
 
 ### Get Qt from pre built or build yourself
 
