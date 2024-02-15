@@ -8,14 +8,14 @@ WIP - very slow and unreliable
 
 ### Get Qt from pre built or build yourself
 
-##### Get pre [built](https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_1/qt-everywhere-src-5.15.2-visionfive2-egl.zip)
+##### Get pre [built](https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_1/qt-everywhere-src-5.15.2-visionfive2-egl.zip) (Recommended)
 ```sh
 wget "https://github.com/furballfunction/Play-/releases/download/licheepi4a_build_1/qt-everywhere-src-5.15.2-visionfive2-egl.zip"
 unzip -d qt qt-everywhere-src-5.15.2-visionfive2-egl.zip
 export PATH_TO_QT_BUILD_OUT="$PWD/qt"
 ```
 
-##### Build QT (For OpenGL ES 2 support):
+##### Build QT with OpenGL ES 2 support (Takes a long time to build and only works on VisionFive 2):
 Get QT 5 from here: [https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt](https://github.com/starfive-tech/Debian/tree/20221225T084846Z/qt)
 Apply patches and cd into the qt-everywhere-src-5.15.2 dir
 ```sh
